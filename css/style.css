@@ -1,0 +1,323 @@
+/* CSS Stylesheet for Chiyamiko Maiba Symmetrical Portfolio */
+:root {
+    --bg-color: #f7f4ef;        /* Light premium warm linen backdrop */
+    --card-bg: #1e1a17;         /* Deep obsidian stone card core */
+    --card-text: #eae4dd;       /* Crisp light tone text inside cards */
+    --text-color: #2b2421;      /* Deep earth body typography text */
+    --primary: #423026;         /* Dark Roasted Clay */
+    --accent: #55705b;          /* Soft Sage Accent */
+    --border: #e6dfd5;          /* Outer framework page borders */
+    --card-border: rgba(255, 255, 255, 0.08);
+    --tag-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 5rem 1.5rem;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px; /* Locked constraint enforces strict layout symmetry */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    margin-bottom: 4.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 3.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header-name {
+    font-size: 3.4rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+.bio-text {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+    transform: scaleX(0.3);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.links a:hover::after {
+    transform: scaleX(1);
+    background-color: var(--accent);
+}
+
+.module-section {
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+h2 {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+h2::before, h2::after {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background: var(--border);
+}
+
+/* Symmetrical Stack Design Layout rules replace old asymmetrical structures */
+.symmetrical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.portfolio-card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 2.25rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    transition: border-color 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+}
+
+.portfolio-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.university-card::before, .zcilt-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 90% 10%, rgba(85, 112, 91, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.card-subtitle {
+    color: #a69e97;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.card-meta {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.card-grade {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    width: fit-content;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-body-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.88;
+}
+
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.action-btn-link {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.demo-btn {
+    background: var(--accent);
+    color: white;
+    border: 1px solid transparent;
+}
+
+.demo-btn:hover { opacity: 0.9; }
+
+.code-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+ul { list-style-type: none; }
+
+li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    opacity: 0.88;
+}
+
+li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.modules-list {
+    font-size: 0.85rem;
+    color: #a69e97;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.clean-list li::before {
+    content: '◦';
+    color: #a69e97;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.tag {
+    background: var(--tag-bg);
+    color: #ffffff;
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
